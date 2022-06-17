@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<ItemGroup>
+	  <Compile Remove="Extensions\**" />
+	  <Compile Remove="Utilities\**" />
+	  <EmbeddedResource Remove="Extensions\**" />
+	  <EmbeddedResource Remove="Utilities\**" />
+	  <None Remove="Extensions\**" />
+	  <None Remove="Utilities\**" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Remove="stylecop.json" />
+	</ItemGroup>
+	<ItemGroup>
+		<Content Include="stylecop.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Dapper" Version="2.0.90" />
+		<PackageReference Include="Dapper.SimpleCRUD" Version="2.3.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="5.0.0" />
+		<PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+	<ItemGroup>
+		<AdditionalFiles Include="stylecop.json" />
+	</ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<CodeAnalysisRuleSet>StyleCopRule.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+
+</Project>

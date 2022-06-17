@@ -1,0 +1,59 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+	  <Compile Remove="Common\**" />
+	  <Compile Remove="Models\TemplateTesting\**" />
+	  <Compile Remove="Requests\**" />
+	  <Compile Remove="Responses\Delivery\**" />
+	  <Compile Remove="Responses\PickupProcess\**" />
+	  <EmbeddedResource Remove="Common\**" />
+	  <EmbeddedResource Remove="Models\TemplateTesting\**" />
+	  <EmbeddedResource Remove="Requests\**" />
+	  <EmbeddedResource Remove="Responses\Delivery\**" />
+	  <EmbeddedResource Remove="Responses\PickupProcess\**" />
+	  <None Remove="Common\**" />
+	  <None Remove="Models\TemplateTesting\**" />
+	  <None Remove="Requests\**" />
+	  <None Remove="Responses\Delivery\**" />
+	  <None Remove="Responses\PickupProcess\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Remove="stylecop.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Content Include="stylecop.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+			<CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+		</Content>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<PackageReference Include="MNX.ConnectEcho.Common.Models" Version="1.0.0-alpha07" />
+		<PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+	</ItemGroup>
+
+	<ItemGroup>
+		<AdditionalFiles Include="stylecop.json" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <ProjectReference Include="..\Common\Common.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	  <Folder Include="Responses\" />
+	</ItemGroup>
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<CodeAnalysisRuleSet>StyleCopRule.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+
+</Project>
