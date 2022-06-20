@@ -41,11 +41,11 @@ namespace PortalController.Api.Controllers
         {
             try
             {
-                applicationLogInfo.APICallStartTime = DateTime.UtcNow;
+                loggingInfo.APICallStartTime = DateTime.UtcNow;
                 Response<string> responseDto = new Response<string>();
                 var accessToken = await HttpContext.GetTokenAsync("access_token");
-                applicationLogInfo.RequestStatus = RequestStatus.Success.ToString();
-                applicationLogInfo.APICallEndTime = DateTime.UtcNow;
+                loggingInfo.RequestStatus = RequestStatus.Success.ToString();
+                loggingInfo.APICallEndTime = DateTime.UtcNow;
                 return Ok(responseDto);
             }
             catch (Exception ex)
