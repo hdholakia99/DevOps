@@ -20,38 +20,15 @@ namespace PortalController.Api.Controllers
     [ApiController]
     public class PortalController : ControllerBase
     {
-        private readonly LoggingInfo applicationLogInfo;
+        private readonly LoggingInfo loggingInfo;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="PortalController"/> class.
         /// </summary>
-        /// <param name="applicationLogInfo">instance of applicationLogInfo.</param>
-        public PortalController(LoggingInfo applicationLogInfo)
+        /// <param name="loggingInfo">instance of applicationLogInfo.</param>
+        public PortalController(LoggingInfo loggingInfo)
         {
-            this.applicationLogInfo = applicationLogInfo;
-        }
-
-        /// <summary>
-        /// Ordered Event Processor Operation.
-        /// </summary>
-        /// <param name="request">jobGUID and taskGUID request param.</param>
-        /// <returns>ActionResult.</returns>
-        [HttpGet("PortalDetail")]
-        public async Task<IActionResult> GetUser()
-        {
-            try
-            {
-                applicationLogInfo.APICallStartTime = DateTime.UtcNow;
-                Response<string> responseDto = new Response<string>();
-                var accessToken = await HttpContext.GetTokenAsync("access_token");
-                applicationLogInfo.RequestStatus = RequestStatus.Success.ToString();
-                applicationLogInfo.APICallEndTime = DateTime.UtcNow;
-                return Ok(responseDto);
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            this.loggingInfo = loggingInfo;
         }
 
         /// <summary>
