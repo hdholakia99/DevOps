@@ -23,7 +23,7 @@ namespace PortalController.Api.Controllers
         private readonly LoggingInfo loggingInfo;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortalController"/> class.
+        /// Initializes a new instance of the <see cref="PortalController"/>.
         /// </summary>
         /// <param name="loggingInfo">instance of applicationLogInfo.</param>
         public PortalController(LoggingInfo loggingInfo)
